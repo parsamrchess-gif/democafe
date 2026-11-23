@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twenty Nine Specialty Coffee | مێنیوی دیجیتاڵی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Vazirmatn', 'Inter', 'sans-serif'],
+            en: ['Inter', 'sans-serif']
+          },
+          colors: {
+            coffee: {
+              DEFAULT: '#B45309',
+              dark: '#1C1917',
+              surface: '#292524'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#141211] text-[#F5F5F4] font-sans antialiased selection:bg-amber-900 selection:text-white">
+
+  <!-- Minimal Header -->
+  <header class="sticky top-0 z-40 bg-[#141211]/95 backdrop-blur border-b border-[#292524]">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-700 flex items-center justify-center text-white font-bold text-base">
+          29
+        </div>
+        <div>
+          <span class="font-bold text-white text-base sm:text-lg" data-t="brandName">Twenty Nine Coffee</span>
+          <span class="hidden sm:inline-block text-xs text-stone-400 px-2">| هەولێر، بەختیاری</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher -->
+        <button id="langToggle" class="text-xs font-semibold px-2.5 py-1.5 rounded border border-stone-700 text-stone-300 hover:bg-stone-800 transition" onclick="toggleLang()">
+          English
+        </button>
+
+        <a href="https://wa.me/9647515502929?text=سڵاو،%20دەمەوێت%20مێز%20بگرم%20یان%20داواکاری%20بکەم" 
+           target="_blank"
+           class="inline-flex items-center gap-1.5 bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold text-xs sm:text-sm px-3.5 py-2 rounded-lg transition">
+          <span data-t="orderHeader">داواکاری / مێز</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- Hero / Cafe Info -->
+    <section class="mb-8 pb-8 border-b border-stone-800">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-stone-900 text-amber-400 text-xs font-medium mb-3 border border-stone-800">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <span data-t="statusBadge">ئێستا کراوەیە • تا ١:٠٠ی شەو</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2" data-t="title">
+        قاوەی تایبەت، شیرینی و خواردنەوەی سەر مێز
+      </h1>
+      <p class="text-xs sm:text-sm text-stone-400 leading-relaxed mb-4" data-t="subtitle">
+        مێنیوی دیجیتاڵیی ڕاستەوخۆ؛ دانەکان هەڵبژێرە و ڕاستەوخۆ لە ڕێگەی واتسئەپەوە بۆ ستافی کافێی بنێرە بە ژمارەی مێزەکەت.
+      </p>
+
+      <!-- Scannable Facts -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 bg-stone-900/80 rounded-lg border border-stone-800">
+          <span class="text-stone-400 block" data-t="f1Label">جۆری قاوە</span>
+          <span class="font-semibold text-stone-200" data-t="f1Val">Specialty Single Origin</span>
+        </div>
+        <div class="p-3 bg-stone-900/80 rounded-lg border border-stone-800">
+          <span class="text-stone-400 block" data-t="f2Label">ناونیشان</span>
+          <span class="font-semibold text-stone-200" data-t="f2Val">هەولێر، گەڕەکی بەختیاری</span>
+        </div>
+        <div class="p-3 bg-stone-900/80 rounded-lg border border-stone-800">
+          <span class="text-stone-400 block" data-t="f3Label">شێوازی داواکردن</span>
+          <span class="font-semibold text-stone-200" data-t="f3Val">لە سەر مێز یان بردنەدەرەوە</span>
+        </div>
+        <div class="p-3 bg-stone-900/80 rounded-lg border border-stone-800">
+          <span class="text-stone-400 block" data-t="f4Label">WiFi و شوێنی کار</span>
+          <span class="font-semibold text-stone-200" data-t="f4Val">بێبەرامبەر و خێرا</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none text-xs font-semibold">
+      <button class="cat-btn px-4 py-2 rounded-lg bg-amber-600 text-stone-950 font-bold whitespace-nowrap" onclick="filterCat('all', this)" data-t="catAll">هەمووی</button>
+      <button class="cat-btn px-4 py-2 rounded-lg bg-stone-900 border border-stone-800 text-stone-300 hover:text-white whitespace-nowrap" onclick="filterCat('coffee', this)" data-t="catCoffee">قاوەی گەرم و سارد</button>
+      <button class="cat-btn px-4 py-2 rounded-lg bg-stone-900 border border-stone-800 text-stone-300 hover:text-white whitespace-nowrap" onclick="filterCat('brewed', this)" data-t="catBrewed">Specialty V60 & Drip</button>
+      <button class="cat-btn px-4 py-2 rounded-lg bg-stone-900 border border-stone-800 text-stone-300 hover:text-white whitespace-nowrap" onclick="filterCat('dessert', this)" data-t="catDessert">شیرینی و کێک</button>
+      <button class="cat-btn px-4 py-2 rounded-lg bg-stone-900 border border-stone-800 text-stone-300 hover:text-white whitespace-nowrap" onclick="filterCat('drinks', this)" data-t="catDrinks">خواردنەوەی تایبەت</button>
+    </div>
+
+    <!-- Menu Items List -->
+    <div id="menuGrid" class="grid sm:grid-cols-2 gap-4">
+
+      <!-- Item 1 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="coffee">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <h3 class="font-bold text-stone-100 text-sm" data-t="i1Name">ئیسپرێسۆ دۆبڵ (Double Espresso)</h3>
+          </div>
+          <p class="text-xs text-stone-400" data-t="i1Desc">تێکەڵەی ١٠٠٪ ئەعرەبیکا، بە تامی چۆکۆلاتی تاریک و کارامێل.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">3,500 IQD</span>
+        </div>
+        <button onclick="addToOrder('ئیسپرێسۆ دۆبڵ', '3,500 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="coffee">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i2Name">فلاتی وایت (Flat White)</h3>
+          <p class="text-xs text-stone-400" data-t="i2Desc">ڕیسترێتۆی دۆبڵ لەگەڵ شیری بەیانیی کوڵاو و فۆمی ناسک.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">5,000 IQD</span>
+        </div>
+        <button onclick="addToOrder('فلاتی وایت', '5,000 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="brewed">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <h3 class="font-bold text-stone-100 text-sm" data-t="i3Name">V60 قاوەی ئەسیوبی (Ethiopia Yirgacheffe)</h3>
+            <span class="text-[10px] bg-amber-950/80 text-amber-400 border border-amber-800/60 px-1.5 py-0.5 rounded">تایبەت</span>
+          </div>
+          <p class="text-xs text-stone-400" data-t="i3Desc">تامێکی میوەیی سروشتی، نۆتی یاسمین و لیمۆی شیرین، دەستی ئامادەکراو.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">6,500 IQD</span>
+        </div>
+        <button onclick="addToOrder('V60 ئەسیوبی', '6,500 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="coffee">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i4Name">سپانیش لاتی سارد (Iced Spanish Latte)</h3>
+          <p class="text-xs text-stone-400" data-t="i4Desc">ئیسپرێسۆی تازە لەگەڵ شیری بەتامکراو و بەفر بە باڵانسی شیرینی تەواو.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">6,000 IQD</span>
+        </div>
+        <button onclick="addToOrder('سپانیش لاتی سارد', '6,000 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="dessert">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i5Name">سان سێباستیان چێزکێک (San Sebastian)</h3>
+          <p class="text-xs text-stone-400" data-t="i5Desc">چێزکێکی برژاوی ئیسپانی بە دڵی کرێمی لەگەڵ سۆسی چۆکۆلاتی بەلجیکی گەرم.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">7,500 IQD</span>
+        </div>
+        <button onclick="addToOrder('سان سێباستیان', '7,500 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="dessert">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i6Name">تیرامیسوی کلاسیك (Classic Tiramisu)</h3>
+          <p class="text-xs text-stone-400" data-t="i6Desc">پسکیتی ساڤۆیاردی تەڕکراو بە قاوەی ئیسپرێسۆ و پەنیری ماسکارپۆنی ئیتاڵی.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">7,000 IQD</span>
+        </div>
+        <button onclick="addToOrder('تیرامیسو', '7,000 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="drinks">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i7Name">ماتچای سارد بە شیری ئۆت (Iced Oat Matcha)</h3>
+          <p class="text-xs text-stone-400" data-t="i7Desc">ماتچای ئۆرگانیکی یابانی بە پلەی Ceremonial لەگەڵ شیری شۆڤان.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">6,500 IQD</span>
+        </div>
+        <button onclick="addToOrder('ماتچای سارد', '6,500 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="menu-item p-4 rounded-xl bg-stone-900/60 border border-stone-800 flex items-start justify-between gap-4" data-cat="drinks">
+        <div class="space-y-1">
+          <h3 class="font-bold text-stone-100 text-sm" data-t="i8Name">مۆکتیلی مۆجیتۆی شلیک (Fresh Berry Mojito)</h3>
+          <p class="text-xs text-stone-400" data-t="i8Desc">شلیک و نەعنای تازە، لیمۆ، و ئاوی گازی بێ شەکری دەستکرد.</p>
+          <span class="text-amber-500 font-bold text-sm block pt-1">5,500 IQD</span>
+        </div>
+        <button onclick="addToOrder('مۆجیتۆی شلیک', '5,500 IQD')" class="shrink-0 p-2 rounded-lg bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 transition text-xs font-semibold" data-t="addBtn">+ داواکردن</button>
+      </div>
+
+    </div>
+
+    <!-- Quick Table Order Box -->
+    <div class="mt-10 p-5 rounded-xl bg-stone-900 border border-stone-800">
+      <h3 class="font-bold text-stone-100 text-sm mb-1" data-t="cartTitle">داواکارییەکانت لەسەر مێز</h3>
+      <p class="text-xs text-stone-400 mb-3" data-t="cartSub">دانەکانی هەڵبژێردراو لێرە دەردەکەون، ژمارەی مێز بنووسە و ڕاستەوخۆ دەچێتە واتسئەپی ستاف.</p>
+
+      <div id="cartList" class="text-xs text-stone-400 space-y-1 py-2 border-y border-stone-800/80 mb-3 min-h-[36px] flex items-center">
+        <span class="italic text-stone-400" data-t="emptyCart">هیچ بەرهەمێکت هەڵنەبژاردووە هێشتا.</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input id="tableNumber" type="text" placeholder="ژمارەی مێز (بۆ نموونە: مێزی ٤)" class="sm:w-1/2 text-xs bg-stone-950 border border-stone-800 rounded-lg p-2.5 text-stone-100 focus:outline-none focus:border-amber-600">
+        <button onclick="sendOrderToWhatsApp()" class="sm:w-1/2 bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold text-xs py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition">
+          <span data-t="sendOrder">ناردنی داواکاری بۆ واتسئەپ</span> 💬
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Sticky Bottom Button for Mobile -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 bg-[#141211] border-t border-stone-800 p-3 flex gap-2 z-50">
+    <a href="tel:+9647515502929" class="w-1/3 py-2.5 rounded-lg border border-stone-700 text-center text-xs font-semibold text-stone-300 flex items-center justify-center gap-1">
+      <span>پەیوەندی</span> 📞
+    </a>
+    <button onclick="document.getElementById('cartList').scrollIntoView({behavior:'smooth'})" class="w-2/3 py-2.5 rounded-lg bg-amber-600 text-center text-xs font-bold text-stone-950 flex items-center justify-center gap-1 shadow-lg shadow-amber-600/20">
+      <span>تەواوکردنی داواکاری</span> ☕️
+    </button>
+  </div>
+
+  <footer class="border-t border-stone-800 py-6 text-center text-xs text-stone-400 mb-14 sm:mb-0">
+    <p>© 2026 Twenty Nine Coffee • Bakhtiyari, Erbil</p>
+  </footer>
+
+  <script>
+    let currentLang = 'ku';
+    let selectedItems = [];
+
+    const translations = {
+      ku: {
+        brandName: "Twenty Nine Coffee",
+        orderHeader: "داواکاری / مێز",
+        statusBadge: "ئێستا کراوەیە • تا ١:٠٠ی شەو",
+        title: "قاوەی تایبەت، شیرینی و خواردنەوەی سەر مێز",
+        subtitle: "مێنیوی دیجیتاڵیی ڕاستەوخۆ؛ دانەکان هەڵبژێرە و ڕاستەوخۆ لە ڕێگەی واتسئەپەوە بۆ ستافی کافێی بنێرە بە ژمارەی مێزەکەت.",
+        f1Label: "جۆری قاوە",
+        f1Val: "Specialty Single Origin",
+        f2Label: "ناونیشان",
+        f2Val: "هەولێر، گەڕەکی بەختیاری",
+        f3Label: "شێوازی داواکردن",
+        f3Val: "لە سەر مێز یان بردنەدەرەوە",
+        f4Label: "WiFi و شوێنی کار",
+        f4Val: "بێبەرامبەر و خێرا",
+        catAll: "هەمووی",
+        catCoffee: "قاوەی گەرم و سارد",
+        catBrewed: "Specialty V60 & Drip",
+        catDessert: "شیرینی و کێک",
+        catDrinks: "خواردنەوەی تایبەت",
+        addBtn: "+ داواکردن",
+        cartTitle: "داواکارییەکانت لەسەر مێز",
+        cartSub: "دانەکانی هەڵبژێردراو لێرە دەردەکەون، ژمارەی مێز بنووسە و ڕاستەوخۆ دەچێتە واتسئەپی ستاف.",
+        emptyCart: "هیچ بەرهەمێکت هەڵنەبژاردووە هێشتا.",
+        sendOrder: "ناردنی داواکاری بۆ واتسئەپ"
+      },
+      en: {
+        brandName: "Twenty Nine Coffee",
+        orderHeader: "Order / Table",
+        statusBadge: "Open Now • Until 1:00 AM",
+        title: "Specialty Coffee, Desserts & Table Service",
+        subtitle: "Live digital menu. Pick your items, enter your table number, and send directly to the barista on WhatsApp.",
+        f1Label: "Coffee Beans",
+        f1Val: "Specialty Single Origin",
+        f2Label: "Location",
+        f2Val: "Erbil, Bakhtiyari District",
+        f3Label: "Service",
+        f3Val: "Dine-in Table or Takeaway",
+        f4Label: "Workspace & WiFi",
+        f4Val: "High-Speed Free Access",
+        catAll: "All Items",
+        catCoffee: "Espresso & Milk",
+        catBrewed: "Specialty V60 & Drip",
+        catDessert: "Desserts & Cakes",
+        catDrinks: "Cold Refreshers",
+        addBtn: "+ Add to Order",
+        cartTitle: "Your Table Order",
+        cartSub: "Selected items appear here. Add your table number and confirm directly on WhatsApp.",
+        emptyCart: "No items selected yet.",
+        sendOrder: "Send Order to WhatsApp"
+      }
+    };
+
+    function toggleLang() {
+      currentLang = currentLang === 'ku' ? 'en' : 'ku';
+      const isRTL = currentLang === 'ku';
+
+      document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      document.documentElement.setAttribute('lang', currentLang);
+      document.getElementById('langToggle').innerText = isRTL ? 'English' : 'کوردی';
+
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    }
+
+    function filterCat(cat, btn) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.className = 'cat-btn px-4 py-2 rounded-lg bg-stone-900 border border-stone-800 text-stone-300 hover:text-white whitespace-nowrap';
+      });
+      btn.className = 'cat-btn px-4 py-2 rounded-lg bg-amber-600 text-stone-950 font-bold whitespace-nowrap';
+
+      document.querySelectorAll('.menu-item').forEach(item => {
+        if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    function addToOrder(name, price) {
+      selectedItems.push({ name, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartList');
+      if (selectedItems.length === 0) {
+        container.innerHTML = `<span class="italic text-stone-400">${translations[currentLang].emptyCart}</span>`;
+        return;
+      }
+
+      let html = '<ul class="space-y-1 w-full">';
+      selectedItems.forEach((item, index) => {
+        html += `<li class="flex items-center justify-between text-stone-200">
+          <span>• ${item.name}</span>
+          <span class="text-amber-400 font-mono">${item.price} 
+            <button onclick="removeItem(${index})" class="text-stone-400 hover:text-red-400 ml-2">✕</button>
+          </span>
+        </li>`;
+      });
+      html += '</ul>';
+      container.innerHTML = html;
+    }
+
+    function removeItem(index) {
+      selectedItems.splice(index, 1);
+      renderCart();
+    }
+
+    function sendOrderToWhatsApp() {
+      if (selectedItems.length === 0) {
+        alert(currentLang === 'ku' ? 'تکایە سەرەتا بەرهەمێک هەڵبژێرە لە مێنیوەکە' : 'Please select at least one item first.');
+        return;
+      }
+
+      const table = document.getElementById('tableNumber').value.trim() || (currentLang === 'ku' ? 'دیاری نەکراوە' : 'Unspecified');
+      let itemsText = selectedItems.map(i => `- ${i.name} (${i.price})`).join('\n');
+
+      let msg = currentLang === 'ku'
+        ? `سڵاو، داواکارییەکی نوێ بۆ مێز:\n📍 ژمارەی مێز: ${table}\n\nداواکارییەکان:\n${itemsText}\n\nسوپاس!`
+        : `Hello, new table order:\n📍 Table Number: ${table}\n\nItems:\n${itemsText}\n\nThank you!`;
+
+      window.open(`https://wa.me/9647515502929?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
